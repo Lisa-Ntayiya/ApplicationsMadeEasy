@@ -1,0 +1,10 @@
+<resources>
+<string name="app_name">Testing</string>
+<string
+    name="createAccount"><a href="https://www.google.com/">Don\'t have account?Create account.</a></string>
+    <string
+        name="forgotPass"><a href="https://www.google.com/">Forgot password?</a></string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+</resources>
