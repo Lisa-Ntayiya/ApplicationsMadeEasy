@@ -6,11 +6,20 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Home" />
-    <item android:title="My profile" />
     <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="My profile" />
+    <item
+        android:id="@+id/track"
         android:icon="@drawable/ic_school_black_24dp"
         android:title="Track application" />
     <item
+        android:id="@+id/account"
+        android:icon="@drawable/ic_account_balance_black_24dp"
+        android:title="Account balance" />
+    <item
+        android:id="@+id/logout"
         android:icon="@drawable/ic_power_settings_new_black_24dp"
         android:title="Logout" />
 </menu>

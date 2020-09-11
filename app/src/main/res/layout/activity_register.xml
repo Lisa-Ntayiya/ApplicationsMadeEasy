@@ -12,15 +12,16 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="creating new account"
+        android:layout_marginTop="40dp"
+        android:text="Creating new account"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#FFFDFD"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="276dp" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/name"
@@ -28,9 +29,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/roundedtextf"
         android:ems="10"
         android:hint="Full Name"
@@ -39,6 +41,7 @@
         android:textColor="#ECE5E5"
         android:textColorHint="#525967"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/surname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +56,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/roundedtextf"
         android:ems="10"
         android:hint="Surname"
@@ -61,6 +65,7 @@
         android:textColor="#ECE5E5"
         android:textColorHint="#525967"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +80,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/roundedtextf"
         android:ems="10"
         android:hint="Email"
@@ -82,6 +88,7 @@
         android:padding="10dp"
         android:textColor="#ECE5E5"
         android:textColorHint="#525967"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,6 +103,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/roundedtextf"
         android:ems="10"
         android:hint="Password"
@@ -103,6 +111,7 @@
         android:padding="10dp"
         android:textColor="#ECE5E5"
         android:textColorHint="#525967"
+        app:layout_constraintBottom_toTopOf="@+id/signupBt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,15 +123,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
+        android:layout_marginBottom="39dp"
         android:background="@drawable/roundedbtn"
         android:text="SIGNUP"
         android:textColor="#ECE5E5"
         android:textColorLink="#ECE5E5"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,33 +146,44 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="194dp"
         android:layout_marginLeft="194dp"
-        android:layout_marginTop="39dp"
         android:layout_marginEnd="169dp"
         android:layout_marginRight="169dp"
+        android:layout_marginBottom="60dp"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupBt" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-
-
-        android:layout_width="153dp"
-
-        android:layout_height="209dp"
-        android:layout_marginStart="139dp"
-        android:layout_marginLeft="139dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="119dp"
-        android:layout_marginRight="119dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/img"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginRight="133dp"
+        app:cardCornerRadius="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:cardBackgroundColor="#ECE5E5"
+            app:cardCornerRadius="250dp"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo" />
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

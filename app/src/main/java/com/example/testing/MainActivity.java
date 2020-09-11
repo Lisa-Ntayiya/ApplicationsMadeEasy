@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.drm.DrmStore;
 import android.os.Bundle;
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
     NavigationView navigationView;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
 
 
@@ -40,14 +44,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
 
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.container_fragment,new MianFragment());
+        fragmentTransaction.commit();
+
+
+
         }
 
         @Override
         public boolean onNavigationItemSelected(MenuItem menuItem){
-        if(menuItem.getItemId()==R.id.home){
+        if(menuItem.getItemId()== R.id.home){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new MianFragment());
+            fragmentTransaction.commit();
 
         }
-            if(menuItem.getItemId()==R.id.home){
+        else if(menuItem.getItemId()== R.id.profile){
+
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new Profile());
+            fragmentTransaction.commit();
+
+
+            }
+        else if(menuItem.getItemId()==R.id.track){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new Profile());
+            fragmentTransaction.commit();
+
+            }
+        else if(menuItem.getItemId()==R.id.account){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new Profile());
+            fragmentTransaction.commit();
+
+            }
+        else if(menuItem.getItemId()==R.id.logout){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new Profile());
+            fragmentTransaction.commit();
 
             }
 
