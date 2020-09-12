@@ -1,8 +1,10 @@
 package com.example.testing;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,7 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 import static com.example.testing.R.string.*;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,AccountFragment.onFragmentBtnSelected {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(this);
+
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar, string.open,string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
@@ -53,50 +57,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
-        @Override
-        public boolean onNavigationItemSelected(MenuItem menuItem){
-        if(menuItem.getItemId()== R.id.home){
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        drawerLayout.closeDrawer(GravityCompat.START);
+        if(item.getItemId()== R.id.home){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,new MianFragment());
             fragmentTransaction.commit();
 
         }
-        else if(menuItem.getItemId()== R.id.profile){
+       else if(item.getItemId()== R.id.profile){
 
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment,new Profile());
+            fragmentTransaction.replace(R.id.container_fragment,new Fragmentprofile());
             fragmentTransaction.commit();
-
-
-            }
-        else if(menuItem.getItemId()==R.id.track){
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment,new Profile());
-            fragmentTransaction.commit();
-
-            }
-        else if(menuItem.getItemId()==R.id.account){
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment,new Profile());
-            fragmentTransaction.commit();
-
-            }
-        else if(menuItem.getItemId()==R.id.logout){
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment,new Profile());
-            fragmentTransaction.commit();
-
-            }
-
-            return true;
 
 
         }
+        else if(item.getItemId()==R.id.track){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new Fragmentprofile());
+            fragmentTransaction.commit();
+
+        }
+        else if(item.getItemId()==R.id.account){
+            
+           Account acc = new Account();
+
+        }
+        else if(item.getItemId()==R.id.logout){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new Fragmentprofile());
+            fragmentTransaction.commit();
+
+        }
+
+        return true;
+    }
+
+    @Override
+    public void onButtonSelected() {
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment,new Fragmentprofile());
+        fragmentTransaction.commit();
 
     }
+}
 
