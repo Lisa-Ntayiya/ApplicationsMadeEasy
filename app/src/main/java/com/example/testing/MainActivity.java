@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
         else if(item.getItemId()==R.id.account){
-            
+
            Account acc = new Account();
 
         }
